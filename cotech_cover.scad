@@ -1,5 +1,5 @@
 
-$fn = 24;
+$fn = 44;
 
 
 // switch base
@@ -33,15 +33,15 @@ clip();
 translate([0,0,(16/2)-2])
 difference(){
 	minkowski(){
-		cube([78,78,15],center=true);
-		cylinder(1,center=true);
+		cube([74,74,15],center=true);
+		cylinder(h=1,r=3,center=true);
 	}
-	cube([42,46,16.01],center=true);
-	translate([11,34,(16/2)-2])
-	cylinder(h=19,r=(2.5/2),center=true);
-	rotate([0,0,180])
-	translate([11,34,(16/2)-2])
-	cylinder(h=19,r=(2.5/2),center=true);
+	cube([62,46,16.01],center=true);
+	for(i = [0:90:360]){
+		rotate([0,0,i])
+		translate([35.5-6.5,35.5-6.5,-(16/2)-2])
+		cylinder(h=19,r=1.75);
+	}
 }
 
-//translate([11,34,(16/2)-2]) cylinder(h=16,r=(2.5/2),center=true);
+//color("red") cube([80,80,3],center=true);
